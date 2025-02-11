@@ -22,7 +22,8 @@ import Power from "../assets/power.png";
 import { BoldTag } from "../components/BoldTag";
 import { Check } from "../components/icons/Check";
 import Girl2 from "../assets/girl2.png";
-import { Carousel } from '../components/Carousel'
+import { Carousel } from "../components/Carousel";
+import { useNavigate } from "react-router-dom";
 
 const images = [Img1, Img2, Img3, Img4, Img5, Img6];
 
@@ -70,7 +71,9 @@ const Table = () => {
 const Dot = () => {
   return <div className="w-2 h-2 bg-[#4D4D4D] rounded-full"></div>;
 };
-export const Home = () => (
+export const Home = () => {
+  const navigate = useNavigate();
+  return (
   <div className="content gap-4">
     <Card>
       <div className="flex gap-6 w-full">
@@ -297,12 +300,22 @@ export const Home = () => (
           <div className="w-[150px] border-b-4 border-[#14B4DC] my-6 pb-2 text-center">
             チャージ方法
           </div>
-          {/* <Carousel images={[Img1, Img2, Img3]} /> */}
-          <Carousel images={[
-            {img: Img1, title: '端末の接続方法'},
-            {img: Img2, title: '144の国と地域から利用する地域を選択'},
-            {img: Img3, title: '利用する地域のプランを決定'},
-          ]} />
+          <Carousel
+            images={[
+              { img: Img1, title: "端末の接続方法" },
+              { img: Img2, title: "144の国と地域から利用する地域を選択" },
+              { img: Img3, title: "利用する地域のプランを決定" },
+            ]}
+          />
+          <Button
+            className="!w-[200px] text-sm my-2"
+            onClick={() => {
+              navigate('/country')
+            }}
+          >
+            <div className="flex-1">チャージする</div>
+            <Triangle size={16} color="#fff" />
+          </Button>
         </div>
       </Card>
     </div>
@@ -311,4 +324,4 @@ export const Home = () => (
       <CloseBtn />
     </div>
   </div>
-);
+)};
