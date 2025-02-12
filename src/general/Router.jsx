@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { RoutePaths } from "./RoutePaths.jsx";
 import { Home } from "../home/Home.jsx";
 import { Country } from "../home/Country.jsx";
+import { Info } from "../home/Info.jsx";
 import { Step } from "../home/Step.jsx";
 import { NotFound } from "./NotFound.jsx";
 import { Layout } from "./Layout.jsx";
@@ -29,7 +30,7 @@ export const Router = () => (
       path={RoutePaths.INFO}
       element={
         <Layout title='DeSiM Wi-Fi　チャージ内容確認'>
-          <Country />
+          <Info />
         </Layout>
       }
     />
@@ -38,14 +39,6 @@ export const Router = () => (
       element={
         <Layout title='DeSiM Wi-Fi'>
           <Step />
-        </Layout>
-      }
-    />
-     <Route
-      path={RoutePaths.HOME}
-      element={
-        <Layout title='DeSiM Wi-Fi'>
-          <Home />
         </Layout>
       }
     />

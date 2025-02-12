@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-export const Carousel = ({ images = [] }) => {
+export const Carousel = ({ images = [], onImageClick = () => {} }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
 
-  // 处理点击切换
+  // 处理点击指示点
   const handleDotClick = (index) => {
     setCurrentIndex(index);
   };
-
+  
   // 处理触摸开始
   const handleTouchStart = (e) => {
     setTouchStart(e.touches[0].clientX);
@@ -38,7 +38,9 @@ export const Carousel = ({ images = [] }) => {
   };
 
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col items-center" onClick={(e) => {
+      e.stopPropagation();
+    }}>
       {/* 指示点放在图片区域上方，使用普通文档流布局 */}
       <div className="flex flex-col items-center">
         <div className="flex justify-center gap-14 mb-6 items-center h-5 w-fit">
@@ -83,11 +85,17 @@ export const Carousel = ({ images = [] }) => {
                 </div>
                 {image.title}
               </div>
-              <div className={`flex items-center justify-center bg-[#B3B3B3] w-full`}>
+              <div
+                className="flex items-center justify-center bg-[#B3B3B3] w-full"
+                onClick={() => {
+                  onImageClick(image);
+                }}
+              >
                 <img
                   src={image.img}
                   alt={`Slide ${index + 1}`}
                   className="h-40 object-contain"
+                
                 />
               </div>
             </div>
