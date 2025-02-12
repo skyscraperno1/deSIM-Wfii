@@ -320,7 +320,7 @@ export const Home = () => {
                     <p>すでに所有していますか？</p>
                   </div>
                   <Button className="!w-[200px] text-sm">
-                    <div className="flex-1">チャージ方法</div>
+                    <div className="flex-1">持ってます</div>
                     <Triangle size={16} color="#fff" />
                   </Button>
                   <p className="underline">持っていない</p>
