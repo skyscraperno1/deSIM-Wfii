@@ -10,6 +10,13 @@ html,body {
   margin: 0 auto;
 }
 
+/* 媒体查询：当屏幕宽度大于 400px 时，设置最大宽度为 100% */
+@media (min-width: 401px) {
+  #root {
+    max-width: 100%;
+  }
+}
+
 .container {
   min-height: calc(100% - 51px);
   background-color: #FFD757;
